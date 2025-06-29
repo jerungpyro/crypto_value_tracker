@@ -31,7 +31,7 @@ class AppDrawer extends StatelessWidget {
               // Then navigate to the About page
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const AboutScreen()),
+                MaterialPageRoute(builder: (context) => AboutScreen()),
               );
             },
           ),

@@ -1,26 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutScreen extends StatelessWidget {
-  const AboutScreen({super.key});
+  // REMOVE 'const' FROM THE CONSTRUCTOR HERE
+  AboutScreen({super.key});
+
+  final Uri _githubUri =
+      Uri.parse('https://github.com/jerungpyro/crypto_value_tracker');
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_githubUri)) {
+      throw 'Could not launch $_githubUri';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    // We use a theme to easily access colors for consistency.
     final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
         title: const Text("About This App"),
       ),
-      // Padding adds space around the content.
       body: Padding(
         padding: const EdgeInsets.all(24.0),
-        // A Column to arrange our text widgets vertically.
         child: Column(
-          // Aligns all content to the left, which is standard for info pages.
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // --- Section 1: App Purpose ---
+            // ... rest of the code is unchanged ...
             const Text(
               'App Purpose',
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -30,37 +37,36 @@ class AboutScreen extends StatelessWidget {
               'This application fetches and displays the live value of the cryptocurrency XRP (Ripple) in Malaysian Ringgit (MYR). The data is retrieved from a public JSON API.',
               style: TextStyle(fontSize: 16, height: 1.5, color: Colors.white70),
             ),
-            
-            // A spacer to visually separate the sections.
             const SizedBox(height: 30),
-
-            // --- Section 2: Author ---
             const Text(
               'Author',
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
             const Text(
-              'Developed by: [Badrul]', // Placeholder for you to edit
+              'Developed by: Badrul Muhammad Akasyah',
               style: TextStyle(fontSize: 16),
             ),
-            
+            const Text(
+              'Matric Number: 2023131279',
+              style: TextStyle(fontSize: 16),
+            ),
             const SizedBox(height: 30),
-
-            // --- Section 3: GitHub Repo (New Section) ---
             const Text(
               'GitHub Repo',
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
-            // This is the placeholder for your link.
-            // We style it to look like a link for better UI.
-            Text(
-              '[Your GitHub Repo Link Here]', // Placeholder for you to edit
-              style: TextStyle(
-                fontSize: 16,
-                color: theme.colorScheme.secondary, // Use a theme color for links
-                decoration: TextDecoration.underline,
+            InkWell(
+              onTap: _launchUrl,
+              child: Text(
+                _githubUri.toString(),
+                style: TextStyle(
+                  fontSize: 16,
+                  color: theme.colorScheme.secondary,
+                  decoration: TextDecoration.underline,
+                  decorationColor: theme.colorScheme.secondary,
+                ),
               ),
             ),
           ],
