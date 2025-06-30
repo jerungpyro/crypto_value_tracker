@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutScreen extends StatelessWidget {
-  // REMOVE 'const' FROM THE CONSTRUCTOR HERE
+
   AboutScreen({super.key});
 
   final Uri _githubUri =
@@ -27,7 +27,7 @@ class AboutScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ... rest of the code is unchanged ...
+
             const Text(
               'App Purpose',
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),

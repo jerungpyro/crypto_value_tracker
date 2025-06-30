@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 
 import '../services/api_service.dart';
 import '../models/xrp_price_model.dart';
-import '../widgets/app_drawer.dart'; // Import the drawer
+import '../widgets/app_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // The drawer property automatically adds the burger icon to the AppBar
+
       drawer: const AppDrawer(),
       appBar: AppBar(
         title: const Text("Live XRP Price (MYR)"),

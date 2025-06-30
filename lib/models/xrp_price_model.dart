@@ -1,7 +1,6 @@
 class XrpPrice {
   final double price;
 
-  // ADD 'const' TO THE CONSTRUCTOR HERE
   const XrpPrice({required this.price});
 
   factory XrpPrice.fromJson(Map<String, dynamic> json) {

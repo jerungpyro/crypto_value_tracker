@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../screens/about_screen.dart'; // Import the AboutScreen
+import '../screens/about_screen.dart'; 
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -26,9 +26,9 @@ class AppDrawer extends StatelessWidget {
             leading: const Icon(Icons.info_outline),
             title: const Text('About'),
             onTap: () {
-              // Close the drawer first
+
               Navigator.pop(context); 
-              // Then navigate to the About page
+
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => AboutScreen()),
